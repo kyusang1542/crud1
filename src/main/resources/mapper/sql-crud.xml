@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.crud1.mapper.CrudMapper">
+    <insert id="insertItem" parameterType="com.example.crud1.dto.CrudDto">
+        insert into item_test(item_id, item_name)
+            VALUES (#{item_id}, #{item_name})
+    </insert>
+
+    <delete id="deleteItem" parameterType="int">
+        delete from item_test where item_id = #{item_id}
+    </delete>
+
+    <update id="updateItem" parameterType="com.example.crud1.dto.CrudDto">
+        update item_test SET item_name = #{item_name} where item_id = #{item_id}
+    </update>
+
+    <select id="selectItem" parameterType="int" resultType="com.example.crud1.dto.CrudDto">
+        select item_name from item_test where item_id = #{item_id}
+    </select>
+
+</mapper>
